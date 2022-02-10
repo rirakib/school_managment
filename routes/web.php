@@ -23,3 +23,4 @@ Route::get('/',[DashboardController::class,'index'])->name('dashboard.index');
 
 Route::get('login',[LoginController::class,'login'])->name('login');
 Route::post('login',[LoginController::class,'loginCheck'])->name('login.check');
+Route::get('logout',[LoginController::class,'logout'])->name('logout');
