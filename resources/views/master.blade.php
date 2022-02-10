@@ -145,7 +145,7 @@
 
 
     <!-- Ajax script  -->
-    {{-- <script src="{{asset('backend/ajax/ajax.js')}}"></script>
+    <script src="{{asset('backend/ajax/ajax.js')}}"></script>
     @yield('scripts')
     <script>
         $.ajaxSetup({
@@ -153,7 +153,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-    </script> --}}
+    </script>
 </body>
 
 </html>

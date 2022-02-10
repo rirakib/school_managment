@@ -1,5 +1,5 @@
 @extends('master')
-@section('admin_title','Class')
+@section('admin_title','Subject')
 @section('admin_content')
 
 
@@ -9,7 +9,7 @@
                 <div class="wrap-breadcrumb">
                     <ul>
                         <li class="item-link"><a href="{{route('dashboard.index')}}" class="link">Dashboard</a></li>
-                        <li class="item-link"><a href="{{route('class.index')}}" class="link">Class</a>
+                        <li class="item-link"><a href="{{route('subject.index')}}" class="link">Subject</a>
                         </li>
                         <li class="item-link"><a  class="link">Edit</a>
                         </li>
@@ -27,7 +27,7 @@
                         @if(session('stutus'))
                         <h2 style="color:green">{{session('stutus')}}</h2>
                         @else
-                        <h2>Edit Class</h2>
+                        <h2>Edit Subject</h2>
                         @endif
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -49,23 +49,37 @@
                     </div>
                     <div class="x_content">
                         <br />
-                        <form id="demo-form2" action="{{route('class.update',$class->id)}}" method="POST"
+                        <form id="demo-form2" action="{{route('subject.update',$subject->id)}}" method="POST"
                             enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             @csrf
                             @method('PUT')
-                            <input type="hidden" name="" value="{{$class->id}}">
+                            <input type="hidden" name="" value="{{$subject->id}}">
                            
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Class Name <span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="name" name="name" value="{{$class->name}}" required="required"
-                                        class="form-control col-md-7 col-xs-12 @error('name') is-invalid @enderror"
-                                        placeholder="Class Name">
-                                    @error('name')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
+                            <div class="row">
+                                <div class="form-group col-md-11 mx-auto">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Class</label>
+                                    <div class="col-md-7 col-sm-9 col-xs-12">
+                                        <select class="form-control" id="cat_id" name="class_id">
+                                            <option value="{{$subject->class->id}}">{{$subject->class->name}}</option>
+                                            @foreach(DB::table('stu_classes')->orderBy('name','asc')->get() as $data)
+                                            <option value="{{$data->id}}">{{$data->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group col-md-11 mx-auto">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="total_subject">Subject <span
+                                            >*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="subject" name="subject" 
+                                            class="form-control col-md-7 col-xs-12 @error('subject') is-invalid @enderror"
+                                            placeholder="Subject" value="{{$subject->subject}}">
+                                        @error('subject')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                             
