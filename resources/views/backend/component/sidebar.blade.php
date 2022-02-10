@@ -25,54 +25,14 @@
             <div class="menu_section">
                 <h3>Section</h3>
                 <ul class="nav side-menu">
-                    {{-- <li><a><i class="fa fa-home"></i> Product <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fas fa-hourglass"></i> Class <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{route('product.index')}}">Index</a></li>
-                            <li><a href="{{route('product.create')}}">Create</a></li>
+                            <li><a href="{{route('class.index')}}">Index</a></li>
+                            <li><a href="{{route('class.create')}}">Create</a></li>
                         </ul>
-                    </li> --}}
+                    </li>
 
-                    {{-- <li><a><i class="fa fa-home"></i> Category <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{route('dashboard.category.index')}}">Index</a></li>
-                            <li><a href="{{route('dashboard.category.create')}}">Create</a></li>
-                        </ul>
-                    </li> --}}
-
-                    {{-- <li><a><i class="fa fa-home"></i> Subcategory <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{route('dashboard.subcategory.index')}}">Index</a></li>
-                            <li><a href="{{route('dashboard.subcategory.create')}}">Create</a></li>
-                        </ul>
-                    </li> --}}
-
-                    {{-- <li><a><i class="fa fa-home"></i> Unit <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{route('unit.index')}}">Index</a></li>
-                            <li><a href="{{route('unit.create')}}">Create</a></li>
-                        </ul>
-                    </li> --}}
-
-                    {{-- <li><a><i class="fa fa-home"></i> Size <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{route('size.index')}}">Index</a></li>
-                            <li><a href="{{route('size.create')}}">Create</a></li>
-                        </ul>
-                    </li> --}}
-
-                    {{-- <li><a><i class="fa fa-home"></i> Color <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{route('color.index')}}">Index</a></li>
-                            <li><a href="{{route('color.create')}}">Create</a></li>
-                        </ul>
-                    </li> --}}
-
-                    {{-- <li><a><i class="fa fa-home"></i> Brand <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{route('brand.index')}}">Index</a></li>
-                            <li><a href="{{route('brand.create')}}">Create</a></li>
-                        </ul>
-                    </li> --}}
+                    
 
 
                 </ul>
