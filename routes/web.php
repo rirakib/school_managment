@@ -19,8 +19,12 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/',[DashboardController::class,'index'])->name('dashboard.index');
 
 Route::get('login',[LoginController::class,'login'])->name('login');
 Route::post('login',[LoginController::class,'loginCheck'])->name('login.check');
 Route::get('logout',[LoginController::class,'logout'])->name('logout');
+
+
+Route::group(['middleware'=>['login_check']],function(){
+    Route::get('/',[DashboardController::class,'index'])->name('dashboard.index');
+});

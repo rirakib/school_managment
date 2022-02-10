@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-
+use Auth;
 class LoginCheck
 {
     /**
@@ -16,6 +16,14 @@ class LoginCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if(session('user_name'))
+        {
+            
+            return $next($request);
+        }
+        else{
+            return redirect()->route('login');
+        }
+        
     }
 }
