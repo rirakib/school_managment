@@ -9,7 +9,7 @@
                 <div class="wrap-breadcrumb">
                     <ul>
                         <li class="item-link"><a href="{{route('dashboard.index')}}" class="link">Dashboard</a></li>
-                        <li class="item-link"><a href="{{route('class.index')}}" class="link">Class</a>
+                        <li class="item-link"><a href="{{route('teacher.index')}}" class="link">Teacher</a>
                         </li>
                     </ul>
                 </div>
@@ -35,7 +35,7 @@
                     @if(session('delete'))
                         <h2 style="color:red">{{session('delete')}}</h2>
                     @else
-                        <h2>Class List</h2>
+                        <h2>Teacher List</h2>
                     @endif
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -63,7 +63,10 @@
                         <table class="table table-striped jambo_table bulk_action">
                             <thead>
                                 <tr class="headings">
+                                    <th class="column-title">Image </th>
                                     <th class="column-title">Name </th>
+                                    <th class="column-title">Mobile Number </th>
+                                    <th class="column-title">Show </th>
                                     <th class="column-title">Edit </th>
                                     <th class="column-title no-link last"><span class="nobr">Delete</span>
                                     </th>
@@ -71,18 +74,21 @@
                             </thead>
 
                             <tbody>
-                                @if(count($class) == 0)
+                                @if(count($teacher) == 0)
                                     <tr class="odd pointer">
                                         <td colspan="4" style="text-align:center">There have no data</td>
                                     </tr>
                                 @else
 
-                                @foreach($class as $data)
+                                @foreach($teacher as $data)
                                 <tr class="even pointer">
+                                    <td class=" "><img src="{{asset('images/teacher/image/'.$data->image)}}" class="img_size" alt=""></td>
                                     <td class=" ">{{$data->name}}</td>
-                                    <td class="a-right a-right"><a href="{{route('class.edit',$data->id)}}" class="btn btn-success">Edit</a></td>
+                                    <td class=" ">{{$data->mobile_number}}</td>
+                                    <td class="a-right a-right"><a href="{{route('teacher.show',$data->id)}}" class="btn btn-success">Show</a></td>
+                                    <td class="a-right a-right"><a href="{{route('teacher.edit',$data->id)}}" class="btn btn-warning">Edit</a></td>
                                     <td class=" last">
-                                        <form action="{{route('class.destroy',$data->id)}}" method="POST">
+                                        <form action="{{route('teacher.destroy',$data->id)}}" method="POST">
                                             @csrf 
                                             @method('Delete')
                                             <button type="submit" class="btn btn-danger">Delete</button>
@@ -104,5 +110,14 @@
 
 
     </div>
+    <style>
+        .img_size{
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
     
 @endsection
