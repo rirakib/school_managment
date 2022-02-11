@@ -57,14 +57,17 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name
                                 </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" id="name" name="name" required="required">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" >
+                                    @error('name')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="father_name">Father Name
                                 </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" id="father_name" name="father_name"
+                                    <input type="text" class="form-control @error('father_name') is-invalid @enderror" id="father_name" name="father_name"
                                         required="required">
                                 </div>
                             </div>
@@ -74,7 +77,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mother_name">Mother Name
                                 </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" id="mother_name" name="mother_name"
+                                    <input type="text" class="form-control @error('mother_name') is-invalid @enderror" id="mother_name" name="mother_name"
                                         required="required">
                                 </div>
                             </div>
@@ -93,7 +96,7 @@
                                     Address
                                 </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" id="present_address" name="present_address"
+                                    <input type="text" class="form-control @error('present_address') is-invalid @enderror" id="present_address" name="present_address"
                                         required="required">
                                 </div>
                             </div>
@@ -102,8 +105,8 @@
                                     for="parmanenet_address">Parmanent Address
                                 </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" id="parmanenet_address"
-                                        name="parmanenet_address" required="required">
+                                    <input type="text" class="form-control @error('parmanent_address') is-invalid @enderror" id="parmanenet_address"
+                                        name="parmanent_address" required="required">
                                 </div>
                             </div>
                         </div>
@@ -114,7 +117,7 @@
                                     Number
                                 </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" id="mobile_number" name="mobile_number"
+                                    <input type="text" class="form-control @error('mobile_number') is-invalid @enderror" id="mobile_number" name="mobile_number"
                                         required="required">
                                 </div>
                             </div>
@@ -131,7 +134,7 @@
                             <div class="form-group col-md-6">
                                 <label for="gender" class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
                                 <div class="col-md-7 col-sm-9 col-xs-12">
-                                    <select class="form-control" name="gender">
+                                    <select class="form-control @error('gender') is-invalid @enderror" name="gender">
                                         <option>Choose type</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
@@ -265,7 +268,7 @@
                                 <label for="image" class="control-label col-md-3 col-sm-3 col-xs-12">Teacher Image
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="image" class="form-control col-md-7 col-xs-12" type="file" name="image">
+                                    <input id="image" class="form-control col-md-7 col-xs-12 @error('image') is-invalid @enderror" type="file" name="image" required="required">
                                 </div>
                             </div>
                             
