@@ -117,6 +117,29 @@
 
                         <div class="row">
                             <div class="form-group col-md-6">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="family_income">
+                                    Family Income
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input type="text"
+                                        class="form-control @error('family_income') is-invalid @enderror"
+                                        id="family_income" name="family_income" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                    for="total_family_member">Total Family Member
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input type="text"
+                                        class="form-control @error('total_family_member') is-invalid @enderror"
+                                        id="total_family_member" name="total_family_member" required="required">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile_number">Mobile
                                     Number
                                 </label>
