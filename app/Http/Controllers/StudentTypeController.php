@@ -15,6 +15,8 @@ class StudentTypeController extends Controller
     public function index()
     {
         //
+        $studentType = StudentType::orderBy('name','asc')->paginate(10);
+        return view('backend.studentType.index',compact('studentType'));
     }
 
     /**
@@ -25,6 +27,7 @@ class StudentTypeController extends Controller
     public function create()
     {
         //
+        return view('backend.studentType.create');
     }
 
     /**
@@ -36,6 +39,9 @@ class StudentTypeController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        StudentType::create($data);
+        return redirect()->back()->with('stutus','Data created successfully');
     }
 
     /**
@@ -55,9 +61,11 @@ class StudentTypeController extends Controller
      * @param  \App\Models\StudentType  $studentType
      * @return \Illuminate\Http\Response
      */
-    public function edit(StudentType $studentType)
+    public function edit($id)
     {
         //
+        $studentType = StudentType::find($id);
+        return view('backend.studentType.edit',compact('studentType'));
     }
 
     /**
@@ -67,9 +75,13 @@ class StudentTypeController extends Controller
      * @param  \App\Models\StudentType  $studentType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, StudentType $studentType)
+    public function update(Request $request,$id)
     {
         //
+        $data = $request->all();
+        $studentType = StudentType::find($id);
+        $studentType->update($data);
+        return redirect()->back()->with('stutus','Data updated successfully');
     }
 
     /**
@@ -78,8 +90,11 @@ class StudentTypeController extends Controller
      * @param  \App\Models\StudentType  $studentType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(StudentType $studentType)
+    public function destroy($id)
     {
         //
+        $data = StudentType::find($id);
+        $data->delete();
+        return redirect()->back()->with('delete','Data has been deleted');
     }
 }

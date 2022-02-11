@@ -1,5 +1,5 @@
 @extends('master')
-@section('admin_title','Group')
+@section('admin_title','Student type')
 @section('admin_content')
 
 <div class="">
@@ -8,7 +8,7 @@
             <div class="wrap-breadcrumb">
                 <ul>
                     <li class="item-link"><a href="{{route('dashboard.index')}}" class="link">Dashboard</a></li>
-                    <li class="item-link"><a href="{{route('group.index')}}" class="link">Group</a>
+                    <li class="item-link"><a href="{{route('student-type.index')}}" class="link">Studnet type</a>
                     </li>
                     <li class="item-link"><a href="#" class="link">Create</a>
                     </li>
@@ -26,7 +26,7 @@
                     @if(session('stutus'))
                     <h2 style="color:green">{{session('stutus')}}</h2>
                     @else
-                    <h2>Create Class</h2>
+                    <h2>Create Student type</h2>
                     @endif
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -48,17 +48,17 @@
                 </div>
                 <div class="x_content">
                     <br />
-                    <form id="demo-form2" action="{{route('group.store')}}" method="POST" enctype="multipart/form-data"
+                    <form id="demo-form2" action="{{route('student-type.store')}}" method="POST" enctype="multipart/form-data"
                         data-parsley-validate class="form-horizontal form-label-left">
                         @csrf
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Group Name <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Student Type Name <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" id="name" name="name" required="required"
                                     class="form-control col-md-7 col-xs-12 @error('name') is-invalid @enderror"
-                                    placeholder="Group Name">
+                                    placeholder="Studnet Type Name">
                                 @error('name')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

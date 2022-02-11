@@ -1,5 +1,5 @@
 @extends('master')
-@section('admin_title','Group')
+@section('admin_title','Student type')
 @section('admin_content')
 
 
@@ -9,7 +9,7 @@
                 <div class="wrap-breadcrumb">
                     <ul>
                         <li class="item-link"><a href="{{route('dashboard.index')}}" class="link">Dashboard</a></li>
-                        <li class="item-link"><a href="{{route('group.index')}}" class="link">Group</a>
+                        <li class="item-link"><a href="{{route('student-type.index')}}" class="link">Group</a>
                         </li>
                         <li class="item-link"><a  class="link">Edit</a>
                         </li>
@@ -49,18 +49,18 @@
                     </div>
                     <div class="x_content">
                         <br />
-                        <form id="demo-form2" action="{{route('group.update',$group->id)}}" method="POST"
+                        <form id="demo-form2" action="{{route('student-type.update',$studentType->id)}}" method="POST"
                             enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             @csrf
                             @method('PUT')
-                            <input type="hidden" name="id" value="{{$group->id}}">
+                            <input type="hidden" name="id" value="{{$studentType->id}}">
                            
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Class Name <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Student Type Name <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="name" name="name" value="{{$group->name}}" required="required"
+                                    <input type="text" id="name" name="name" value="{{$studentType->name}}" required="required"
                                         class="form-control col-md-7 col-xs-12 @error('name') is-invalid @enderror"
                                         placeholder="Class Name">
                                     @error('name')

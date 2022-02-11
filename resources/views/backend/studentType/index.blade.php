@@ -1,5 +1,5 @@
 @extends('master')
-@section('admin_title','Group')
+@section('admin_title','Student Type')
 @section('admin_content')
 
 
@@ -9,7 +9,7 @@
                 <div class="wrap-breadcrumb">
                     <ul>
                         <li class="item-link"><a href="{{route('dashboard.index')}}" class="link">Dashboard</a></li>
-                        <li class="item-link"><a href="{{route('group.index')}}" class="link">Group</a>
+                        <li class="item-link"><a href="{{route('student-type.index')}}" class="link">Studnet Type</a>
                         </li>
                     </ul>
                 </div>
@@ -71,18 +71,18 @@
                             </thead>
 
                             <tbody>
-                                @if(count($group) == 0)
+                                @if(count($studentType) == 0)
                                     <tr class="odd pointer">
                                         <td colspan="4" style="text-align:center">There have no data</td>
                                     </tr>
                                 @else
 
-                                @foreach($group as $data)
+                                @foreach($studentType as $data)
                                 <tr class="even pointer">
                                     <td class=" ">{{$data->name}}</td>
-                                    <td class="a-right a-right"><a href="{{route('group.edit',$data->id)}}" class="btn btn-success">Edit</a></td>
+                                    <td class="a-right a-right"><a href="{{route('student-type.edit',$data->id)}}" class="btn btn-success">Edit</a></td>
                                     <td class=" last">
-                                        <form action="{{route('group.destroy',$data->id)}}" method="POST">
+                                        <form action="{{route('student-type.destroy',$data->id)}}" method="POST">
                                             @csrf 
                                             @method('Delete')
                                             <button type="submit" class="btn btn-danger">Delete</button>
