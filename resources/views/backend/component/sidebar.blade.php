@@ -50,6 +50,12 @@
                             <li><a href="{{route('student-type.create')}}">Create</a></li>
                         </ul>
                     </li>
+                    <li><a><i class="fas fa-clock"></i> Shift <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{route('shift.index')}}">Index</a></li>
+                            <li><a href="{{route('shift.create')}}">Create</a></li>
+                        </ul>
+                    </li>
                     <li><a><i class="fas fa-chalkboard-teacher"></i> Teacher <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{route('teacher.index')}}">Index</a></li>
