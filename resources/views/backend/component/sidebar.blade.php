@@ -32,10 +32,17 @@
                         </ul>
                     </li>
 
-                    <li><a><i class="fas fa-hourglass"></i> Subject <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fas fa-book"></i> Subject <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{route('subject.index')}}">Index</a></li>
                             <li><a href="{{route('subject.create')}}">Create</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fas fa-chalkboard-teacher"></i> Teacher <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{route('teacher.index')}}">Index</a></li>
+                            <li><a href="{{route('teacher.create')}}">Create</a></li>
                         </ul>
                     </li>
 
