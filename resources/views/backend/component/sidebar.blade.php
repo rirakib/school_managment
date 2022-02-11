@@ -38,7 +38,18 @@
                             <li><a href="{{route('subject.create')}}">Create</a></li>
                         </ul>
                     </li>
-
+                    <li><a><i class="fas fa-user-astronaut"></i> Group <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{route('group.index')}}">Index</a></li>
+                            <li><a href="{{route('group.create')}}">Create</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fas fa-user-md"></i> Student type <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{route('student-type.index')}}">Index</a></li>
+                            <li><a href="{{route('student-type.create')}}">Create</a></li>
+                        </ul>
+                    </li>
                     <li><a><i class="fas fa-chalkboard-teacher"></i> Teacher <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{route('teacher.index')}}">Index</a></li>
