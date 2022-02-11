@@ -107,9 +107,11 @@ class TeacherController extends Controller
      * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function edit(Teacher $teacher)
+    public function edit($id)
     {
         //
+        $teacher = Teacher::find($id);
+        return view('backend.teacher.edit',compact('teacher'));
     }
 
     /**
@@ -119,9 +121,14 @@ class TeacherController extends Controller
      * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request,$id)
     {
         //
+        $data = $request->all();
+        $teacher = Teacher::find($id);
+        $teacher->update($data);
+        return redirect()->back()->with('stutus','Data update successfully');
+
     }
 
     /**
