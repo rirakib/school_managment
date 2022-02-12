@@ -54,6 +54,18 @@
                         <div class="row">
                             <p>Personal identity*</p>
                             <div class="form-group col-md-6">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="unique_id">Unique ID
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control @error('unique_id') is-invalid @enderror"
+                                        id="unique_id" name="unique_id" placeholder="ABC-111-111" value="{{ old('unique_id') }}">
+                                    @error('unique_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name
                                 </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">

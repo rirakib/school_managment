@@ -40,7 +40,10 @@ class StudentController extends Controller
     {
         
         $student = new Student();
-        
+        $validated = $request->validate([
+            'unique_id' => 'required | unique:students'
+        ]);
+        $student->unique_id = $request->unique_id;
         $student->name = $request->name;
         $student->father_name = $request->father_name;
         $student->mother_name = $request->mother_name;

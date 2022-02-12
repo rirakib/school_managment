@@ -22,14 +22,13 @@
         <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{$female_parcent}}% </i> in all students</span>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
-        <div class="count">2,315</div>
-        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+        <span class="count_top"><i class="fas fa-graduation-cap"></i> Total Scholarship Student</span>
+        <div class="count">{{$scolarship_student}}</div>
+        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{$scolarship_parcent}}% </i> in all students</span>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
-        <div class="count">7,325</div>
-        <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+        <span class="count_top"><i class="fa fa-user"></i> Total Staf</span>
+        <div class="count">{{$total_staf}}</div>
     </div>
 </div>
 

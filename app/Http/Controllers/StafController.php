@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Teacher;
+use App\Models\Staf;
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
+class StafController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class TeacherController extends Controller
     public function index()
     {
         //
-        $teacher = Teacher::orderBy('id','asc')->paginate(10);
-        return view('backend.teacher.index',compact('teacher'));
+        $staf = Staf::orderBy('id','asc')->paginate(10);
+        return view('backend.staftype.index',compact('staf'));
     }
 
     /**
@@ -27,7 +27,7 @@ class TeacherController extends Controller
     public function create()
     {
         //
-        return view('backend.teacher.create');
+        return view('backend.staftype.create');
     }
 
     /**
@@ -39,7 +39,6 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         //
-       
         $validated = $request->validate([
             'name' => 'required',
             'father_name' => 'required',
@@ -50,53 +49,54 @@ class TeacherController extends Controller
             'parmanent_address' => 'required',
             'image' => 'required',
         ]);
-        $teacher = new Teacher();
-        $teacher->name = $request->name;
-        $teacher->father_name = $request->father_name;
-        $teacher->mother_name = $request->mother_name;
-        $teacher->mobile_number = $request->mobile_number;
-        $teacher->present_address = $request->present_address;
-        $teacher->parmanent_address = $request->parmanent_address;
-        $teacher->email = $request->email;
-        $teacher->gender = $request->gender;
-        $teacher->blood_group = $request->blood_group;
-        $teacher->national_id = $request->national_id;
-        $teacher->ssc = $request->ssc;
-        $teacher->ssc_result = $request->ssc_result;
-        $teacher->hsc_result = $request->hsc_result;
-        $teacher->hsc = $request->hsc;
-        $teacher->hounars_subject = $request->hounars_subject;
-        $teacher->hounars_result = $request->hounars_result;
-        $teacher->masters_subject = $request->masters_subject;
-        $teacher->masters_result = $request->masters_result;
+        $staf = new Staf();
+        $staf->name = $request->name;
+        $staf->father_name = $request->father_name;
+        $staf->mother_name = $request->mother_name;
+        $staf->mobile_number = $request->mobile_number;
+        $staf->present_address = $request->present_address;
+        $staf->staf_type = $request->staf_type;
+        $staf->parmanent_address = $request->parmanent_address;
+        $staf->email = $request->email;
+        $staf->gender = $request->gender;
+        $staf->blood_group = $request->blood_group;
+        $staf->national_id = $request->national_id;
+        $staf->ssc = $request->ssc;
+        $staf->ssc_result = $request->ssc_result;
+        $staf->hsc_result = $request->hsc_result;
+        $staf->hsc = $request->hsc;
+        $staf->hounars_subject = $request->hounars_subject;
+        $staf->hounars_result = $request->hounars_result;
+        $staf->masters_subject = $request->masters_subject;
+        $staf->masters_result = $request->masters_result;
        
         if($request->hasFile('image') && $request->hasFile('resume_image'))
         {
             $image = $request->file('image');
             $image_extention = $image->getClientOriginalExtension();
             $image_name = time().'.'.$image_extention;
-            $image->move('images/Teacher/image', $image_name);
-            $teacher->image = $image_name;
+            $image->move('images/staf/image', $image_name);
+            $staf->image = $image_name;
 
             $resume_image = $request->file('resume_image');
             $resume_extention = $resume_image->getClientOriginalExtension();
             $resume_image_name = time().'.'.$resume_extention;
-            $resume_image->move('images/Teacher/resume', $resume_image_name);
-            $teacher->resume_image = $resume_image_name;
+            $resume_image->move('images/staf/resume', $resume_image_name);
+            $staf->resume_image = $resume_image_name;
             
         }
        
-        $teacher->save();
+        $staf->save();
         return redirect()->back()->with('stutus','Data created successfullly');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Teacher  $teacher
+     * @param  \App\Models\Staf  $staf
      * @return \Illuminate\Http\Response
      */
-    public function show(Teacher $teacher)
+    public function show(Staf $staf)
     {
         //
     }
@@ -104,43 +104,42 @@ class TeacherController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Teacher  $teacher
+     * @param  \App\Models\Staf  $staf
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
-        $teacher = Teacher::find($id);
-        return view('backend.teacher.edit',compact('teacher'));
+        $staf = Staf::find($id);
+        return view('backend.staftype.edit',compact('staf'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Teacher  $teacher
+     * @param  \App\Models\Staf  $staf
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
     {
         //
         $data = $request->all();
-        $teacher = Teacher::find($id);
-        $teacher->update($data);
+        $staf = Staf::find($id);
+        $staf->update($data);
         return redirect()->back()->with('stutus','Data update successfully');
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Teacher  $teacher
+     * @param  \App\Models\Staf  $staf
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
-        $data = Teacher::find($id);
+        $data = Staf::find($id);
         $data->delete();
         return redirect()->back()->with('delete','Data has been deleted');
     }

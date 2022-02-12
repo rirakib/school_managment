@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ShiftController;
+use App\Http\Controllers\StafController;
 use App\Http\Controllers\StafTypeController;
 use App\Http\Controllers\StuClassController;
 use App\Http\Controllers\StudentController;
@@ -43,4 +44,5 @@ Route::group(['middleware'=>['login_check']],function(){
     Route::resource('shift',ShiftController::class,['name'=>'shift']);
     Route::resource('student',StudentController::class,['name'=>'student']);
     Route::resource('staf/type',StafTypeController::class,['name'=>'staf.type']);
+    Route::resource('staf',StafController::class,['name'=>'staf.']);
 });

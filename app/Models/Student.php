@@ -12,7 +12,7 @@ use App\Models\Shift;
 class Student extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','father_name','mother_name','family_income','total_family_member','birth_certificate_number',
+    protected $fillable = ['unique_id','name','father_name','mother_name','family_income','total_family_member','birth_certificate_number',
     'present_address','parmanent_address','mobile_number','father_id','date_of_birth',
     'mother_id','gender','blood_group','admission_class','group','student_types',
     'shift','psc_result','jsc_result','birth_image','image'
