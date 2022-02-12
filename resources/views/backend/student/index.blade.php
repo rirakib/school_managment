@@ -1,5 +1,5 @@
 @extends('master')
-@section('admin_title','Class')
+@section('admin_title','Student')
 @section('admin_content')
 
 
@@ -9,7 +9,7 @@
                 <div class="wrap-breadcrumb">
                     <ul>
                         <li class="item-link"><a href="{{route('dashboard.index')}}" class="link">Dashboard</a></li>
-                        <li class="item-link"><a href="{{route('teacher.index')}}" class="link">Teacher</a>
+                        <li class="item-link"><a href="{{route('student.index')}}" class="link">Student</a>
                         </li>
                     </ul>
                 </div>
@@ -35,7 +35,7 @@
                     @if(session('delete'))
                         <h2 style="color:red">{{session('delete')}}</h2>
                     @else
-                        <h2>Teacher List</h2>
+                        <h2>Student List</h2>
                     @endif
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -65,6 +65,7 @@
                                 <tr class="headings">
                                     <th class="column-title">Image </th>
                                     <th class="column-title">Name </th>
+                                    <th class="column-title">Father Name </th>
                                     <th class="column-title">Mobile Number </th>
                                     <th class="column-title">Show </th>
                                     <th class="column-title">Edit </th>
@@ -74,21 +75,22 @@
                             </thead>
 
                             <tbody>
-                                @if(count($teacher) == 0)
+                                @if(count($student) == 0)
                                     <tr class="odd pointer">
                                         <td colspan="4" style="text-align:center">There have no data</td>
                                     </tr>
                                 @else
 
-                                @foreach($teacher as $data)
+                                @foreach($student as $data)
                                 <tr class="even pointer">
-                                    <td class=" "><img src="{{asset('images/teacher/image/'.$data->image)}}" class="img_size" alt=""></td>
+                                    <td class=" "><img src="{{asset('images/student/image/'.$data->image)}}" class="img_size" alt=""></td>
                                     <td class=" ">{{$data->name}}</td>
+                                    <td class=" ">{{$data->father_name}}</td>
                                     <td class=" ">{{$data->mobile_number}}</td>
-                                    <td class="a-right a-right"><a href="{{route('teacher.show',$data->id)}}" class="btn btn-success">Show</a></td>
-                                    <td class="a-right a-right"><a href="{{route('teacher.edit',$data->id)}}" class="btn btn-warning">Edit</a></td>
+                                    <td class="a-right a-right"><a href="{{route('student.show',$data->id)}}" class="btn btn-success">Show</a></td>
+                                    <td class="a-right a-right"><a href="{{route('student.edit',$data->id)}}" class="btn btn-warning">Edit</a></td>
                                     <td class=" last">
-                                        <form action="{{route('teacher.destroy',$data->id)}}" method="POST">
+                                        <form action="{{route('student.destroy',$data->id)}}" method="POST">
                                             @csrf 
                                             @method('Delete')
                                             <button type="submit" class="btn btn-danger">Delete</button>

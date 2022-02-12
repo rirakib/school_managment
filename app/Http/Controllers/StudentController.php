@@ -15,6 +15,8 @@ class StudentController extends Controller
     public function index()
     {
         //
+        $student = Student::orderBy('name','asc')->paginate(10);
+        return view('backend.student.index',compact('student'));
     }
 
     /**
